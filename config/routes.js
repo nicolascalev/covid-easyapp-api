@@ -10,5 +10,5 @@
 
 module.exports.routes = {
 
-    'GET /csrfToken': { action: 'security/grant-csrf-token' }
+
 };
