@@ -14,11 +14,12 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
     name: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
 
     quantity: {
-      type: 'string'
+      type: 'number'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
