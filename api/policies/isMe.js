@@ -5,7 +5,8 @@ module.exports = async function (req, res, proceed) {
     const [, accessToken] = req.headers['authorization'].split(' ');
     if (!accessToken) return res.sendStatus(403)
 
-    var id = req.param('id');
+    var id = req.param('id') || req.param('parentid');
+    if (!id) return res.status(400).json({ details: 'No id or parentid parameters present in url.' })
     try {
         var cvcase = await Case.findOne({ id });
         let payload = await sails.helpers.verifyAccessToken.with({ accessToken });
