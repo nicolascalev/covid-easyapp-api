@@ -51,5 +51,22 @@ module.exports = {
     })
   },
 
+  stats: async function (req, res) {
+    try {
+      var stats = {};
+      stats.cases = await Case.count();
+      stats.places = await Place.count();
+      stats.casesLast24Hrs = await Case.count({
+        createdAt: { '>' : Date.now() - (24*60*60*1000) }
+      }) 
+      stats.placesLast24Hrs = await Place.count({
+        createdAt: { '>' : Date.now() - (24*60*60*1000) }
+      })
+      return res.status(200).json(stats)
+    } catch (err) {
+      return res.status(500).json(err)
+    }
+  }
+
 };
 
