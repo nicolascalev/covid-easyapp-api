@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mysql',
-    url: 'mysql://b0421d99fa1d40:f1fac140@us-cdbr-east-02.cleardb.com/heroku_6faeddd407af0ce',
+    url: 'mysql://nicolascalev:uhBSYfs8tv@localhost:3306/covid_api',
 
   },
 

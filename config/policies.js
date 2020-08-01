@@ -19,4 +19,14 @@ module.exports.policies = {
 
   // '*': true,
 
+  CaseController: {
+    'create': ['isTokenVerified'],
+    'destroy': ['isTokenVerified', 'isMe'],
+    'update': ['isTokenVerified', 'isMe']
+  },
+
+  PlaceController: {
+    'create': 'isTokenVerified'
+  },
+
 };

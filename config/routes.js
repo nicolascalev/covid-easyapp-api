@@ -10,4 +10,7 @@
 
 module.exports.routes = {
 
+    'PUT /login':          'AuthController.login',
+    'PUT /getAccessToken': 'AuthController.getAccessToken',
+
 };

@@ -19,4 +19,6 @@ module.exports.custom = {
   // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
   // …
 
+  accessTokenSecret: '1LxKhxjM5fuHGwUZQm9RW3OeoumbK8fr',
+  refreshTokenSecret: 'vpJfwAopFL8XbnMLk1s4pVURKwmNhqox',
 };
