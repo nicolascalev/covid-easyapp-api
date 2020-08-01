@@ -38,11 +38,13 @@ module.exports = {
   getAccessToken: async function (req, res) {
 
     // checks if refresh token was sent
-    if (!req.param('refreshToken')) return res.status(403).json();
+    if (!req.headers['authorization']) return res.status(403).json();
+    const [, refreshToken] = req.headers['authorization'].split(' ');
+    if (!refreshToken) return res.status(403).json();
 
     // incluye jwt para verificar refresh token
     const jwt = require('jsonwebtoken');
-    jwt.verify(req.param('refreshToken'), sails.config.custom.refreshTokenSecret, async (err, payload) => {
+    jwt.verify(refreshToken, sails.config.custom.refreshTokenSecret, async (err, payload) => {
       if (err !== null) return res.status(403).json();
       let accessToken = await sails.helpers.signAccessToken.with({ username: payload.username, id: payload.id })
       return res.json({ accessToken })
