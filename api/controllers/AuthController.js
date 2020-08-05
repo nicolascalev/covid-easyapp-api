@@ -9,6 +9,30 @@
 module.exports = {
 
   /**
+   * `AuthController.signup()`
+   */
+  signup: async function (req, res) {
+    const { username, password, name } = req.allParams();
+    if(!username || !password || !name) return res.status(400).json({ details: 'You have to provide username, password and name' })
+
+    // validate that user doesn´t exist
+    try {
+      var cvcase = await Case.findOne({ username });
+      if(cvcase) return res.status(400).json({ details: 'There is a user with that username already' })
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+
+    // if there is no user w thar username then create it
+    try {
+      var cvcase = await Case.create({ username, password, name }).fetch();
+      return res.status(200).json(cvcase)
+    } catch (err) {
+      return res.status(500).json(err)
+    }
+  },
+
+  /**
    * `AuthController.login()`
    */
   login: async function (req, res) {
@@ -51,6 +75,9 @@ module.exports = {
     })
   },
 
+  /**
+  * `AuthController.stats()`
+  */
   stats: async function (req, res) {
     try {
       var stats = {};

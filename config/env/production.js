@@ -149,7 +149,8 @@ module.exports = {
     ***************************************************************************/
     cors: {
       allowOrigins: '*',
-      allowRequestHeaders: 'content-type,authorization'
+      allowRequestHeaders: 'content-type,authorization',
+      allowRequestMethods: 'GET,POST,PATCH,PUT,DELETE,OPTIONS,HEAD'
     },
 
   },
