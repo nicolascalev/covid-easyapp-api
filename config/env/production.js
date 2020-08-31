@@ -48,7 +48,7 @@ module.exports = {
     ***************************************************************************/
     default: {
       adapter: 'sails-mysql',
-      url: 'mysql://b0421d99fa1d40:f1fac140@us-cdbr-east-02.cleardb.com/heroku_6faeddd407af0ce',
+      url: 'mysql://user:password@host/db', //ponga su db de producción
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -178,7 +178,7 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    onlyAllowOrigins: ['https://covid-easyapp.vercel.app'],
+    onlyAllowOrigins: ['https://nicolascalev.github.io'], // ponga la  url de su frontend
 
 
     /***************************************************************************
@@ -299,7 +299,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://covid-easyapp.herokuapp.com',
+    baseUrl: 'https://covid-easyapp.herokuapp.com', //la url de su backend
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
