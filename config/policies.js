@@ -22,8 +22,8 @@ module.exports.policies = {
   CaseController: {
     'destroy': ['isTokenVerified', 'isMe'],
     'update': ['isTokenVerified', 'isMe'],
-    'replace': ['isTokenVerified', 'isMe']
   },
+  'case/update-case-places': ['isTokenVerified', 'isMe'],
 
   PlaceController: {
     'create': 'isTokenVerified'

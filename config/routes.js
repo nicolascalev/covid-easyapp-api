@@ -10,9 +10,11 @@
 
 module.exports.routes = {
 
-    'POST /signup':          'AuthController.signup',
-    'PUT /login':          'AuthController.login',
+    'POST /signup': 'AuthController.signup',
+    'PUT /login': 'AuthController.login',
     'PUT /getAccessToken': 'AuthController.getAccessToken',
 
-    'GET /stats': 'AuthController.stats'
+    'GET /stats': 'AuthController.stats',
+
+    'PATCH /case/:id/places': { action: 'case/update-case-places' },
 };
